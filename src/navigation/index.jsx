@@ -8,7 +8,7 @@ import {
 import React from 'react'
 import { ScrollView, SafeAreaView, StyleSheet, View, Image } from 'react-native'
 //screen
-import HomeScreen from '../navigation/home'
+import HomeScreen from './home'
 import Home from '../screens/Home'
 import AcceptedFormScreen from '../screens/AcceptedForm'
 import AllTaskScreen from '../screens/allTask'

@@ -1,0 +1,260 @@
+
+    [
+        { 
+            "idService": 80,
+            "serviceReportNumber": "19110600002",
+            "persenDiscount": 10,
+            "persenTax": 10,
+            "laborTime": 0,
+            "startTimeInstrument": "11/14/19 15:19:58",
+            "finishTimeInstrument": "11/14/19 15:19:58",
+            "part": [
+                 { 
+                    "idInstrument": 88,
+                    "idPart": 589,
+                    "idServiceT": 80,
+                    "qty": 1,
+                    "useDate": null,
+                    "name": "Packing seat diameter 2 mm pcs",
+                    "checked": true,
+                    "price": 370000,
+                    "totalPrice": 370000 
+                } 
+            ],
+            "sumTotalReal": 370000,
+            "sumDiscount": 37000,
+            "travelTime": 1,
+            "subTotal": 333000,
+            "sumTax": 33300,
+            "sumTotalFinish": 366300,
+            "instrumentSign": { 
+                "customerSign": "",
+                "engineerSign": "/storage/emulated/0/saved_signature/signature.png",
+                "customerName": "Laboratorium Balai Kesehatan Penerbangan" 
+            },
+            "checklist":{ 
+                "customerName": "Laboratorium Balai Kesehatan Penerbangan",
+                "idCustomer": 3,
+                "idService": 80,
+                "checklistData": [
+                    {
+                        "group" : "SOFTWARE AND DATABASE",
+                        "idInstrument" : 1,
+                        "head" : [
+                            {
+                                "name": "Create Restore Point Windows",
+                                "idCheckItem" : 4,
+                                "value": "Value",
+                                "parent" :[
+                                    {
+                                        "idCheckitem": 48,
+                                        "nameParent": "U-Packing 2 MM",
+                                        "value": "Value"
+                                    },
+                                    {
+                                        "idCheckitem": 50,
+                                        "nameParent": "Sampling Pump",
+                                        "value" : "Value"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "Clear Sample Patient",
+                                "idCheckItem" : 2,
+                                "value": "Value",
+                                "parent" :{}
+                            },
+                            {
+                                "name": "Backup Full Software",
+                                "idCheckItem" : 1,
+                                "value": "Value",
+                                "parent" :{}
+                            }
+                        ]
+                    },
+                    {
+                        "group" : "CONSUMABLES PARTS",
+                        "idInstrument" : 1,
+                        "head" : [
+                            {
+                                "name": "Reagent Pump",
+                                "idCheckItem" : 8,
+                                "value": "Value",
+                                "parent" :[
+                                    {
+                                        "idCheckitem": 9,
+                                        "nameParent": "U-Packing 5 MM",
+                                        "value": "Value"
+                                    },
+                                    {
+                                        "idCheckitem": 10,
+                                        "nameParent": "U-Packing 10 MM",
+                                        "value": "Value"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "U-Packing 5 MM",
+                                "idCheckItem" : 9,
+                                "value": "Value",
+                                "parent" :{}
+                            },
+                            {
+                                "name": "U-Packing 10 MM",
+                                "idCheckItem" : 10,
+                                "value" : "Value",
+                                "parent" :{}
+                            }
+                        ]
+                    },
+                    {
+                        "group" : "MOVEMENT AND SENSOR CHECK",
+                        "idInstrument" : 1,
+                        "head" : [
+                            {
+                                "name": "U-Packing 2 MM",
+                                "idCheckItem" : 1,
+                                "value": "Value",
+                                "parent" :{}
+                            },
+                            {
+                                "name": "Sampling Pump",
+                                "idCheckItem" : 1,
+                                "value": "Value",
+                                "parent" :{}
+                            }
+                        ]
+                    }
+                ]
+                } 
+            },
+        { 
+            "idService": 80,
+            "serviceReportNumber": "19110600002",
+            "persenDiscount": 10,
+            "persenTax": 10,
+            "laborTime": 0,
+            "startTimeInstrument": "11/14/19 15:19:58",
+            "finishTimeInstrument": "11/14/19 15:19:58",
+            "part": [
+                 { 
+                    "idInstrument": 88,
+                    "idPart": 589,
+                    "idServiceT": 80,
+                    "qty": 1,
+                    "useDate": null,
+                    "name": "Packing seat diameter 2 mm pcs",
+                    "checked": true,
+                    "price": 370000,
+                    "totalPrice": 370000 
+                } 
+            ],
+            "sumTotalReal": 370000,
+            "sumDiscount": 37000,
+            "travelTime": 1,
+            "subTotal": 333000,
+            "sumTax": 33300,
+            "sumTotalFinish": 366300,
+            "instrumentSign": { 
+                "customerSign": "",
+                "engineerSign": "/storage/emulated/0/saved_signature/signature.png",
+                "customerName": "Laboratorium Balai Kesehatan Penerbangan" 
+            },
+            "checklist":{ 
+                "customerName": "Laboratorium Balai Kesehatan Penerbangan",
+                "idCustomer": 3,
+                "idService": 80,
+                "checklistData": [
+                    {
+                        "group" : "SOFTWARE AND DATABASE",
+                        "idInstrument" : 1,
+                        "head" : [
+                            {
+                                "name": "Create Restore Point Windows",
+                                "idCheckItem" : 4,
+                                "value" : "Value",
+                                "parent" :[
+                                    {
+                                        "idCheckitem": 48,
+                                        "nameParent": "U-Packing 2 MM",
+                                        "value": "Value"
+                                    },
+                                    {
+                                        "idCheckitem": 50,
+                                        "nameParent": "Sampling Pump",
+                                        "value" : "Value"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "Clear Sample Patient",
+                                "idCheckItem" : 2,
+                                "value" : "Value",
+                                "parent" :{}
+                            },
+                            {
+                                "name": "Backup Full Software",
+                                "idCheckItem" : 1,
+                                "value" : "Value",
+                                "parent" :{}
+                            }
+                        ]
+                    },
+                    {
+                        "group" : "CONSUMABLES PARTS",
+                        "idInstrument" : 1,
+                        "head" : [
+                            {
+                                "name": "Reagent Pump",
+                                "idCheckItem" : 8,
+                                "value" : "Value",
+                                "parent" :[
+                                    {
+                                        "idCheckitem": 9,
+                                        "nameParent": "U-Packing 5 MM",
+                                        "value": "Value"
+                                    },
+                                    {
+                                        "idCheckitem": 10,
+                                        "nameParent": "U-Packing 10 MM",
+                                        "value": "Value"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "U-Packing 5 MM",
+                                "idCheckItem" : 9,
+                                "value" : "Value",
+                                "parent" :{}
+                            },
+                            {
+                                "name": "U-Packing 10 MM",
+                                "idCheckItem" : 10,
+                                "value" : "Value",
+                                "parent" :{}
+                            }
+                        ]
+                    },
+                    {
+                        "group" : "MOVEMENT AND SENSOR CHECK",
+                        "idInstrument" : 1,
+                        "head" : [
+                            {
+                                "name": "U-Packing 2 MM",
+                                "idCheckItem" : 1,
+                                "value" : "Value",
+                                "parent" :{}
+                            },
+                            {
+                                "name": "Sampling Pump",
+                                "idCheckItem" : 1,
+                                "value" : "Value",
+                                "parent" :{}
+                            }
+                        ]
+                    }
+                ]
+                } 
+            }
+            
+    ]

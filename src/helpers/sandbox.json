@@ -1,0 +1,157 @@
+{ "PPD": 
+    { "MiscellaneousExpense": "",
+      "MiscellaneousExpenseNote": "",
+      "accommodationCost": "",
+      "accommodationCostNote": "",
+      "etc": "",
+      "etcNote": "",
+      "mealAllowanceCost": "",
+      "mealAllowanceCostNote": "",
+      "transportCost": "",
+      "transportCostNote": "",
+      "transportationCost": "",
+      "transportationCostNote": "" },
+   "Status": "Active",
+   "finishDate": "2019-11-30",
+   "idTask": 92,
+   "report":
+    [ 
+        {
+         "checklist": [ 
+            { 
+                "customerName": "Laboratorium Klinik Mahardhika",
+                "idCustomer": 1,
+                "idService": 153,
+                "checklistData": [
+                    {
+                        "group": "SOFTWARE AND DATABASE",
+                        "idInstrument":1,
+                        "head": [
+                            {
+                                "name": "Backup Full Software",
+                                "idCheckItem": 1,
+                                "value": "",
+                                "attachment": null,
+                                "parent": []
+                            },
+                                {
+                                    "name": "Clear Sample Patient",
+                                    "idCheckItem": 2,
+                                    "value": "",
+                                    "attachment": null,
+                                    "parent": []
+                                },
+                                {
+                                    "name": "Clear Patient Info",
+                                    "idCheckItem": 3,
+                                    "value": "",
+                                    "attachment": null,
+                                    "parent": []
+                                },
+                                {
+                                    "name": "Create Restore Point Windows",
+                                    "idCheckItem": 4,
+                                    "value": "",
+                                    "attachment": null,
+                                    "parent": []
+                                    }]
+                                },
+                                {
+                                    "group": "CONSUMABLES PARTS",
+                                    "idInstrument": 1,
+                                    "head": [{
+                                        "name": "Sampling Pump",
+                                    "idCheckItem": 5,
+                                    "value": "",
+                                    "attachment": null,
+                                    "parent": [{
+                                        "idCheckitem": 6,
+                                    "nameParent": "U-Packing 2 MM",
+                                    "value": "",
+                                    "attachment": null
+                                },
+                                    {
+                                        "idCheckitem": 7,
+                                    "nameParent": "U-Packing 10 MM",
+                                    "value": "",
+                                    "attachment": null
+                                },
+                                    {
+                                        "idCheckitem": 21,
+                                    "nameParent": "U-Packing 10 MM",
+                                    "value": "",
+                                    "attachment": null
+                                },
+                                    {
+                                        "idCheckitem": 20,
+                                    "nameParent": "U-Packing",
+                                    "value": "",
+                                    "attachment": null
+                                    }]
+                                },
+                                {
+                                    "name": "U-Packing 2 MM",
+                                    "idCheckItem": 6,
+                                    "value": "",
+                                    "attachment": null,
+                                    "parent": []
+                                },
+                                {
+                                    "name": "U-Packing 10 MM",
+                                    "idCheckItem": 7,
+                                    "value": "",
+                                    "attachment": null,
+                                    "parent": []
+                                },
+                                {
+                                    "name": "Reagent Pump",
+                                    "idCheckItem": 8,
+                                    "value": "",
+                                    "attachment": null,
+                                    "parent": [{
+                                        "idCheckitem": 9,
+                                    "nameParent": "U-Packing 5 MM",
+                                    "value": "",
+                                    "attachment": null
+                                },
+                                    {
+                                        "idCheckitem": 10,
+                                    "nameParent": "U-Packing 10 MM",
+                                    "value": "",
+                                    "attachment": null
+                                    }]
+                                },
+                                {
+                                    "name": "U-Packing 5 MM",
+                                    "idCheckItem": 9,
+                                    "value": "",
+                                    "attachment": null,
+                                    "parent": []
+                                    }]
+                                    }] 
+            } 
+        ],
+        "finishTimeInstrument": "11/25/19 11:32:36",
+        "idService": 153,
+        "instrumentSign": "[Array]",
+        "laborTime": 0,
+        "observed": "",
+        "part": "[Array]",
+        "persenDiscount": "50",
+        "persenTax": "10",
+        "problem": "",
+        "problemattachment": "[Array]",
+        "serviceReportNumber": "19112100001",
+        "solution": "",
+        "startTimeInstrument": "11/25/19 11:32:36",
+        "status": "4",
+        "subTotal": 1379000,
+        "sumDiscount": 1379000,
+        "sumTax": 137900,
+        "sumTotalFinish": 1516900,
+        "sumTotalReal": 2758000,
+        "totalTime": 0,
+        "travelTime": 9 } ],
+   "startDate": "2019-11-21",
+   "taskAssign": "Soni Yanuarto",
+   "taskOwner": "Anasthasya Ifen" }
