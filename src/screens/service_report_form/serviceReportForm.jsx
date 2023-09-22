@@ -27,7 +27,7 @@ import { ScrollView } from "react-native-gesture-handler";
 
 import { setReportService } from "../../stores/action";
 
-const serviceReportForm = (props) => {
+function serviceReportForm(props) {
   const [custDataVis, setCustDataVis] = useState(true);
   const [instrumentVis, setInstrumentVis] = useState(false);
   const [date, setDate] = useState(new Date());
@@ -613,7 +613,7 @@ const serviceReportForm = (props) => {
       </View>
     </KeyboardAvoidingView>
   );
-};
+}
 
 const viewStyles = StyleSheet.create({
   container: {
