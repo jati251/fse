@@ -278,7 +278,6 @@ function Home(props) {
 
   return (
     <View style={styles.container}>
-      <Header navigation={navigation} />
       <View style={styles.name}>
         {loggedUser && (
           <Text style={textStyles.name} numberOfLines={1}>
@@ -501,7 +500,6 @@ const styles = StyleSheet.create({
   container: {
     height: dimHeight,
     width: dimWidth,
-    paddingTop: dimHeight * 0.1,
   },
   name: {
     marginHorizontal: dimWidth * 0.045,

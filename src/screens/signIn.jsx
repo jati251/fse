@@ -26,7 +26,6 @@ import IconMat from "react-native-vector-icons/MaterialIcons";
 //import action
 import { login, setLoading, inputURL, versionCheck } from "../stores/action";
 
-
 const mapDispatchToProps = {
   login,
   setLoading,

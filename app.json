@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "fse",
-    "slug": "fse",
+    "name": "fse-diapro",
+    "slug": "fse-diapro",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
