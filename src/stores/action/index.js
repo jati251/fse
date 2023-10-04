@@ -1,4 +1,4 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import axiosx from 'axios';
 import { baseURL } from '../../config';
 import { Alert, ToastAndroid, Linking } from 'react-native';
@@ -80,7 +80,7 @@ export function login(getdata) {
 }
 
 export function getTaskWaiting() {
-  // console.log('keepanggil')
+  console.log('keepanggil')
   return dispatch => {
     dispatch({
       type: 'SET_LOADING',
@@ -89,15 +89,14 @@ export function getTaskWaiting() {
     _retrieveData('access_token')
       .then(async token => {
         try {
-          console.log(token, 'ini token')
-          let {data} = await axios({
+          let { data } = await axios({
             method: 'GET',
             url: baseURL + `mobile/v2/task/waiting/user`,
             headers: {
               Authorization: `Bearer ${token}`,
             },
           });
-          // console.log('ini data ask waiting', data)
+          console.log('ini data ask waiting', data)
           dispatch({
             type: 'TASK_WAITING',
             payload: data.data,
@@ -107,9 +106,7 @@ export function getTaskWaiting() {
             payload: false,
           });
         } catch (error) {
-          // console.log(error.response);
           if (error.isAxiosError && !error.response) {
-            // Alert.alert(`Please Check Your Internet Connection`)
             ToastAndroid.show('No Internet Connection', ToastAndroid.BOTTOM);
             dispatch({
               type: 'SET_LOADING',
@@ -125,8 +122,6 @@ export function getTaskWaiting() {
         }
       })
       .catch(err => {
-        // console.log('masuk error');
-
         console.error(err);
       });
   };

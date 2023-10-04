@@ -3,9 +3,12 @@ import { createDrawerNavigator, DrawerContentScrollView, DrawerItem, DrawerItemL
 import { SafeAreaView, ScrollView, View, Image, StyleSheet } from 'react-native';
 
 import Home from '../screens/Home';
+import changePass from '../screens/changePass'
 import { logout } from "../stores/action";
-import logoutScreen from "../screens/logout";
 import { useDispatch } from 'react-redux';
+import HomePart from '../screens/Home-Part';
+import HomePPD from '../screens/Home-PPD';
+import LogoutPage from '../screens/logout';
 
 
 const Drawer = createDrawerNavigator();
@@ -48,10 +51,48 @@ const HomeScreen = () => {
         <Drawer.Navigator
             initialRouteName="Home"
             drawerContent={props => <CustomDrawerContent {...props} />}
-
-
         >
             <Drawer.Screen name="All Task" component={Home} options={{
+
+                headerStyle: {
+                    backgroundColor: '#2F3E9E',
+                },
+                headerTintColor: '#fff',
+                headerTitleStyle: {
+                    fontWeight: 'bold',
+                },
+            }} />
+            <Drawer.Screen name="Change Password" component={changePass} options={{
+
+                headerStyle: {
+                    backgroundColor: '#2F3E9E',
+                },
+                headerTintColor: '#fff',
+                headerTitleStyle: {
+                    fontWeight: 'bold',
+                },
+            }} />
+            <Drawer.Screen name="Home Part" component={HomePart} options={{
+
+                headerStyle: {
+                    backgroundColor: '#2F3E9E',
+                },
+                headerTintColor: '#fff',
+                headerTitleStyle: {
+                    fontWeight: 'bold',
+                },
+            }} />
+            <Drawer.Screen name="Home PPD" component={HomePPD} options={{
+
+                headerStyle: {
+                    backgroundColor: '#2F3E9E',
+                },
+                headerTintColor: '#fff',
+                headerTitleStyle: {
+                    fontWeight: 'bold',
+                },
+            }} />
+            <Drawer.Screen name="Log out" component={LogoutPage} options={{
 
                 headerStyle: {
                     backgroundColor: '#2F3E9E',

@@ -132,11 +132,11 @@ function LoginPage(props) {
       <ErrorBanner visible={showMessage} onPress={() => setShowMessage(false)}>
         {warningMessage}
       </ErrorBanner>
-      {/* <Modal animationType="none" transparent={true} visible={props.isLoading}>
+      <Modal animationType="none" transparent={true} visible={props.isLoading}>
         <View style={viewStyles.loading}>
           <ActivityIndicator size="large" color="blue" />
         </View>
-      </Modal> */}
+      </Modal>
 
       <View style={viewStyles.inputContainer}>
         <IconMat

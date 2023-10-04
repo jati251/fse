@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import {
   View,
   Text,
@@ -9,30 +9,28 @@ import {
   ActivityIndicator,
   Alert,
   ScrollView,
-} from 'react-native';
-import { connect } from 'react-redux';
-import IconOct from 'react-native-vector-icons/Octicons';
-import IconEnt from 'react-native-vector-icons/Entypo';
-import IconAnt from 'react-native-vector-icons/AntDesign';
-import Popover from 'react-native-popover-view';
+} from "react-native";
+import { connect } from "react-redux";
+import IconOct from "react-native-vector-icons/Octicons";
+import IconEnt from "react-native-vector-icons/Entypo";
+import IconAnt from "react-native-vector-icons/AntDesign";
+import Popover from "react-native-popover-view";
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
-} from 'react-native-responsive-screen';
+} from "react-native-responsive-screen";
 import {
   setSelectedInstrument,
   setReportService,
   initServiceReport,
   printPDF,
   downloadPDF,
-} from '../../stores/action';
+} from "../../stores/action";
 
+import Checker from "../home/checker";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
-import Checker from '../home/checker';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-
-
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return state;
 };
 
@@ -44,16 +42,16 @@ const mapDispatchToProps = {
   downloadPDF,
 };
 
-const dimHeight = Dimensions.get('window').height;
-const dimWidth = Dimensions.get('window').width;
+const dimHeight = Dimensions.get("window").height;
+const dimWidth = Dimensions.get("window").width;
 
-const cardStatus = props => {
+const cardStatus = (props) => {
   const [popoverVisible, setPopoverVisible] = useState(false);
   const [modalParts, setModalParts] = useState(false);
   const [modalSaveParts, setModalSaveParts] = useState(false);
   const [alreadyWrite, setAlredyWrite] = useState(false);
   const [alreadyChecked, setAlreadyChecked] = useState(false);
-  const [status, setStatus] = useState('4');
+  const [status, setStatus] = useState("4");
   const [partInstrument, setInstrument] = useState([]); //master part instrument
   const [selectedPart, setSelectedPart] = useState([]);
   const [upload, setUpload] = useState(false);
@@ -72,7 +70,7 @@ const cardStatus = props => {
   const thePart = () => {
     // console.log('thepart terpanggil')
     let result = [];
-    props.selectedTask.part.detail.forEach(element => {
+    props.selectedTask.part.detail.forEach((element) => {
       result.push({
         idInstrument: props.el.idInstrument,
         idPart: element.idMaterial,
@@ -89,10 +87,10 @@ const cardStatus = props => {
   };
 
   //function to define selected part from selected popup modal
-  const _selectPart = value => {
+  const _selectPart = (value) => {
     // console.log('_selectpart terpanggil')
     let data = partInstrument;
-    let index = data.findIndex(el => el.name === value.name);
+    let index = data.findIndex((el) => el.name === value.name);
     data[index].checked = value.checked;
     // console.log('ini data nya loohh',data)
     setSelectedPart(data);
@@ -104,7 +102,7 @@ const cardStatus = props => {
     // console.log('getpart terpanggil')
     try {
       let partFromStorage = await AsyncStorage.getItem(
-        `selectedPart-${props.selectedTask.idTask}-${props.idService}`,
+        `selectedPart-${props.selectedTask.idTask}-${props.idService}`
       );
       if (partFromStorage !== null) {
         // console.log('partFromStorage :',JSON.parse(partFromStorage))
@@ -112,7 +110,7 @@ const cardStatus = props => {
         // setAsync(JSON.parse(partFromStorage))
       }
     } catch (error) {
-      console.log('error');
+      console.log("error");
     }
   }
 
@@ -129,7 +127,7 @@ const cardStatus = props => {
     setSelectedPart(temp);
     AsyncStorage.setItem(
       `selectedPart-${props.selectedTask.idTask}-${props.idService}`,
-      JSON.stringify(temp),
+      JSON.stringify(temp)
     );
   };
 
@@ -137,7 +135,7 @@ const cardStatus = props => {
   function checkID() {
     // console.log(props.checklist, 'INI CHECKLISTNYS')
     if (props.report) {
-      props.report.forEach(el => {
+      props.report.forEach((el) => {
         if (el.idService == props.idService) {
           // console.log('ini ke true2222', el.idService);
           // console.log((el.status, 'ini statusnya'));
@@ -147,8 +145,8 @@ const cardStatus = props => {
       });
     }
     if (props.checklist) {
-      props.checklist.forEach(el => {
-        console.log('ini props', props.idService);
+      props.checklist.forEach((el) => {
+        console.log("ini props", props.idService);
         if (el.idService == props.idService) {
           // console.log('ini ke true', el.idService);
           setAlreadyChecked(true);
@@ -159,8 +157,8 @@ const cardStatus = props => {
 
   //function to check stock,every time rendered masterstock will always synchorized with reported stock, so that number of total part that brought will always same quantity.
   function checkStock() {
-    selectedPart.forEach(elSelected => {
-      partInstrument.forEach(elPart => {
+    selectedPart.forEach((elSelected) => {
+      partInstrument.forEach((elPart) => {
         if (elSelected.idPart === elPart.idPart) {
           // console.log('ini max cap dari elpart atau part instrument',elPart.maxCap)
           elSelected.maxCap = elPart.maxCap;
@@ -169,7 +167,7 @@ const cardStatus = props => {
     });
 
     // console.log('ini selectedpartnya: ',selectedPart)
-    let found = props.report.find(el => {
+    let found = props.report.find((el) => {
       return el.idService == props.idService;
     });
 
@@ -177,8 +175,8 @@ const cardStatus = props => {
     let selectedTempPart = [];
     if (found) {
       // console.log('disini : found')
-      selectedPart.forEach(elSelected => {
-        found.part.forEach(elReport => {
+      selectedPart.forEach((elSelected) => {
+        found.part.forEach((elReport) => {
           // console.log(elSelected.idPart ,'<== selectedpart id, report part id ==>', elReport.idPart)
           if (elSelected.idPart === elReport.idPart) {
             // console.log('ini elreportnya')
@@ -199,7 +197,7 @@ const cardStatus = props => {
       });
     } else {
       // console.log('disiini : notfound')
-      selectedPart.forEach(elSelected => {
+      selectedPart.forEach((elSelected) => {
         // console.log('ini elselectednya', elSelected)
         selectedTempPart.push({ ...elSelected, pastQty: elSelected.qty });
       });
@@ -209,7 +207,7 @@ const cardStatus = props => {
     // console.log('ini selectedpartnya : ', selectedPart)
     AsyncStorage.setItem(
       `selectedPart-${props.selectedTask.idTask}-${props.idService}`,
-      JSON.stringify(selectedTempPart),
+      JSON.stringify(selectedTempPart)
     );
   }
 
@@ -233,18 +231,18 @@ const cardStatus = props => {
     });
     try {
       let found = props.selectedTask.part.report.find(
-        el => el.idService === props.idService,
+        (el) => el.idService === props.idService
       );
-      found.status = '4';
+      found.status = "4";
       await props.initServiceReport(found);
-      await props.setReportService('idService', props.idService);
-      await props.setReportService('serviceReportNumber', props.serviceNumber);
+      await props.setReportService("idService", props.idService);
+      await props.setReportService("serviceReportNumber", props.serviceNumber);
       // console.log('disini')
-      props.nav.navigate('TaskReport', {
+      props.nav.navigate("TaskReport", {
         data: { el: props.el, customer: props.customer },
       });
     } catch (error) {
-      console.error(error, 'ini erornya');
+      console.error(error, "ini erornya");
     }
   }
 
@@ -263,7 +261,7 @@ const cardStatus = props => {
       customerName: props.customer,
     };
     // console.log('ini yang dikirim ke checklist page',props.el.checklistInstrument)
-    props.nav.navigate('ChecklistFormScreen', {
+    props.nav.navigate("ChecklistFormScreen", {
       data: props.el,
       customer,
       nomer: props.nomer,
@@ -275,14 +273,14 @@ const cardStatus = props => {
     setUpload(true);
     try {
       // console.log('[TRY]', props.serviceReport.instrumentSign)
-      let hasil = await props.downloadPDF(props.idService, props.customer)
+      let hasil = await props.downloadPDF(props.idService, props.customer);
       // console.log('[ PROPS ][ idService ]',props.idService)
       // console.log('[ PROPS ][ selectedInstrument ] [ customer ]',props.customer)
       // FileViewer.open(hasil);
       setUpload(false);
     } catch (error) {
       setUpload(false);
-      Alert.alert('Error', 'Network error.');
+      Alert.alert("Error", "Network error.");
       console.error(error);
     }
   }
@@ -291,84 +289,96 @@ const cardStatus = props => {
       <View
         style={{
           ...styles.container,
-          backgroundColor: 'rgba(154, 158, 180, 0.22)',
-          alignItems: 'center',
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          paddingHorizontal: '4%',
-        }}>
-        <View style={{ flexDirection: 'row' }}>
+          backgroundColor: "rgba(154, 158, 180, 0.22)",
+          alignItems: "center",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          paddingHorizontal: "4%",
+        }}
+      >
+        <View style={{ flexDirection: "row" }}>
           {alreadyChecked && alreadyWrite ? (
             <IconAnt
               name="checkcircle"
-              color={status === '4' ? '#31C149' : '#F9A602'}
+              color={status === "4" ? "#31C149" : "#F9A602"}
               backgroundColor="transparent"
               size={17}
-              style={{ marginRight: '5%', alignSelf: 'center' }}
+              style={{ marginRight: "5%", alignSelf: "center" }}
             />
           ) : (
-            <IconOct
-              name="primitive-dot"
-              color="rgba(112, 112, 112, 0.53)"
+            // <IconOct
+            //   name="primitive-dot"
+            //   color="rgba(112, 112, 112, 0.53)"
+            //   backgroundColor="transparent"
+            //   size={30}
+            //   style={{ marginRight: '5%', alignSelf: 'center' }}
+            // />
+            <IconAnt
+              name="checkcircle"
+              color={status === "4" ? "#31C149" : "#F9A602"}
               backgroundColor="transparent"
-              size={30}
-              style={{ marginRight: '5%', alignSelf: 'center' }}
+              size={17}
+              style={{ marginRight: "5%", alignSelf: "center" }}
             />
           )}
           <View>
             <Text
               style={{
                 ...textStyles.title,
-                textTransform: 'capitalize',
+                textTransform: "capitalize",
                 color:
-                  alreadyChecked && alreadyWrite && status === '4'
-                    ? '#31C149'
-                    : alreadyChecked && alreadyWrite && status === '6'
-                      ? '#F9A602'
-                      : '#000000C4',
-              }}>
+                  alreadyChecked && alreadyWrite && status === "4"
+                    ? "#31C149"
+                    : alreadyChecked && alreadyWrite && status === "6"
+                    ? "#F9A602"
+                    : "#000000C4",
+              }}
+            >
               Merk : {props.el.merk}
             </Text>
             <Text
               style={{
                 ...textStyles.title,
-                textTransform: 'capitalize',
+                textTransform: "capitalize",
                 color:
-                  alreadyChecked && alreadyWrite && status === '4'
-                    ? '#31C149'
-                    : alreadyChecked && alreadyWrite && status === '6'
-                      ? '#F9A602'
-                      : '#000000C4',
-              }}>
+                  alreadyChecked && alreadyWrite && status === "4"
+                    ? "#31C149"
+                    : alreadyChecked && alreadyWrite && status === "6"
+                    ? "#F9A602"
+                    : "#000000C4",
+              }}
+            >
               Type : {props.el.type}
             </Text>
             <Text
               style={{
                 ...textStyles.title,
-                textTransform: 'capitalize',
+                textTransform: "capitalize",
                 color:
-                  alreadyChecked && alreadyWrite && status === '4'
-                    ? '#31C149'
-                    : alreadyChecked && alreadyWrite && status === '6'
-                      ? '#F9A602'
-                      : '#000000C4',
-              }}>
+                  alreadyChecked && alreadyWrite && status === "4"
+                    ? "#31C149"
+                    : alreadyChecked && alreadyWrite && status === "6"
+                    ? "#F9A602"
+                    : "#000000C4",
+              }}
+            >
               Serial Number : {props.el.sn}
             </Text>
           </View>
         </View>
 
-        {status == '6' && (
+        {status == "6" && (
           <View
             style={{
               width: 30,
               height: 30,
-              backgroundColor: '#F9A602',
-              justifyContent: 'center',
-              alignItems: 'center',
+              backgroundColor: "#F9A602",
+              justifyContent: "center",
+              alignItems: "center",
               borderRadius: 50,
-            }}>
-            <Text style={{ color: 'white', fontSize: 20, fontWeight: 'bold' }}>
+            }}
+          >
+            <Text style={{ color: "white", fontSize: 20, fontWeight: "bold" }}>
               P
             </Text>
           </View>
@@ -378,7 +388,8 @@ const cardStatus = props => {
           style={{
             marginRight: 10,
           }}
-          onPress={() => setPopoverVisible(!popoverVisible)}>
+          onPress={() => setPopoverVisible(!popoverVisible)}
+        >
           <IconEnt
             name="dots-three-vertical"
             color="rgba(0, 0, 0, 1)"
@@ -390,19 +401,22 @@ const cardStatus = props => {
           isVisible={popoverVisible}
           // debug={true}
           // onCloseComplete={() => console.log('berhasil dengan baik')}>
-          onRequestClose={() => setPopoverVisible(false)}>
+          onRequestClose={() => setPopoverVisible(false)}
+        >
           <View
             style={{
-              width: wp('40%'),
-              height: hp('18%'),
-              justifyContent: 'space-evenly',
+              width: wp("40%"),
+              height: hp("18%"),
+              justifyContent: "space-evenly",
               padding: 10,
-            }}>
+            }}
+          >
             <TouchableOpacity
               onPress={() => {
                 setPopoverVisible(!popoverVisible);
                 setModalParts(!modalParts);
-              }}>
+              }}
+            >
               <Text style={{ fontSize: 16, padding: 8 }}>Select Part</Text>
             </TouchableOpacity>
             <TouchableOpacity onPress={() => redirToChecklist()}>
@@ -410,21 +424,24 @@ const cardStatus = props => {
                 style={{
                   fontSize: 16,
                   padding: 8,
-                  color: alreadyChecked ? 'green' : 'black',
-                }}>
+                  color: alreadyChecked ? "green" : "black",
+                }}
+              >
                 Checklist
               </Text>
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => {
                 redirToReport();
-              }}>
+              }}
+            >
               <Text
                 style={{
                   fontSize: 16,
                   padding: 8,
-                  color: alreadyWrite ? 'green' : 'black',
-                }}>
+                  color: alreadyWrite ? "green" : "black",
+                }}
+              >
                 Report
               </Text>
             </TouchableOpacity>
@@ -432,8 +449,11 @@ const cardStatus = props => {
               <TouchableOpacity
                 onPress={() => {
                   download();
-                }}>
-                <Text style={{ fontSize: 16, padding: 8 }}>Download Report</Text>
+                }}
+              >
+                <Text style={{ fontSize: 16, padding: 8 }}>
+                  Download Report
+                </Text>
               </TouchableOpacity>
             )}
           </View>
@@ -444,53 +464,59 @@ const cardStatus = props => {
           visible={modalParts}
           onRequestClose={() => {
             setModalParts(!modalParts);
-          }}>
+          }}
+        >
           <View
             style={{
-              position: 'absolute',
-              width: '100%',
-              height: '100%',
-              justifyContent: 'center',
-              backgroundColor: 'rgba(100,100,100, 0.5)',
+              position: "absolute",
+              width: "100%",
+              height: "100%",
+              justifyContent: "center",
+              backgroundColor: "rgba(100,100,100, 0.5)",
               padding: 20,
-            }}>
+            }}
+          >
             <View
               style={{
-                width: wp('80%'),
-                height: hp('50%'),
-                backgroundColor: '#fff',
-                alignSelf: 'center',
-                alignItems: 'center',
+                width: wp("80%"),
+                height: hp("50%"),
+                backgroundColor: "#fff",
+                alignSelf: "center",
+                alignItems: "center",
                 borderRadius: 2,
-              }}>
+              }}
+            >
               <View
                 style={{
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  borderBottomColor: 'black',
+                  justifyContent: "center",
+                  alignItems: "center",
+                  borderBottomColor: "black",
                   borderBottomWidth: 0.6,
-                  borderStyle: 'solid',
+                  borderStyle: "solid",
                   flex: 1,
-                  width: '100%',
-                }}>
-                <View style={{ alignSelf: 'center' }}>
+                  width: "100%",
+                }}
+              >
+                <View style={{ alignSelf: "center" }}>
                   <Text
                     style={{
                       fontSize: 16,
-                      fontWeight: 'bold',
-                      textTransform: 'uppercase',
-                    }}>
+                      fontWeight: "bold",
+                      textTransform: "uppercase",
+                    }}
+                  >
                     SELECT PART ({props.el.merk})
                   </Text>
                 </View>
               </View>
               <View
                 style={{
-                  justifyContent: 'flex-start',
-                  alignItems: 'center',
+                  justifyContent: "flex-start",
+                  alignItems: "center",
                   flex: 4,
-                  width: '100%',
-                }}>
+                  width: "100%",
+                }}
+              >
                 <ScrollView>
                   {partInstrument.map((el, i) => {
                     return (
@@ -501,19 +527,21 @@ const cardStatus = props => {
               </View>
               <View
                 style={{
-                  justifyContent: 'flex-end',
-                  alignItems: 'center',
+                  justifyContent: "flex-end",
+                  alignItems: "center",
                   flex: 1,
-                  width: '100%',
-                  flexDirection: 'row',
+                  width: "100%",
+                  flexDirection: "row",
                   paddingRight: 20,
-                }}>
+                }}
+              >
                 <TouchableOpacity onPress={() => setModalParts(!modalParts)}>
                   <Text
                     style={{
-                      color: 'rgba(41, 155, 232, 1)',
-                      fontWeight: 'bold',
-                    }}>
+                      color: "rgba(41, 155, 232, 1)",
+                      fontWeight: "bold",
+                    }}
+                  >
                     CANCEL
                   </Text>
                 </TouchableOpacity>
@@ -522,12 +550,14 @@ const cardStatus = props => {
                   onPress={() => {
                     setModalSaveParts(!modalSaveParts);
                     setModalParts(!modalParts);
-                  }}>
+                  }}
+                >
                   <Text
                     style={{
-                      color: 'rgba(41, 155, 232, 1)',
-                      fontWeight: 'bold',
-                    }}>
+                      color: "rgba(41, 155, 232, 1)",
+                      fontWeight: "bold",
+                    }}
+                  >
                     DONE
                   </Text>
                 </TouchableOpacity>
@@ -542,61 +572,69 @@ const cardStatus = props => {
           visible={modalSaveParts}
           onRequestClose={() => {
             setModalSaveParts(!modalSaveParts);
-          }}>
+          }}
+        >
           <View
             style={{
-              position: 'absolute',
-              width: '100%',
-              height: '100%',
-              justifyContent: 'center',
-              backgroundColor: 'rgba(100,100,100, 0.5)',
+              position: "absolute",
+              width: "100%",
+              height: "100%",
+              justifyContent: "center",
+              backgroundColor: "rgba(100,100,100, 0.5)",
               padding: 20,
-            }}>
+            }}
+          >
             <View
               style={{
-                width: wp('70%'),
-                height: hp('25%'),
-                backgroundColor: '#fff',
-                alignSelf: 'center',
-                alignItems: 'center',
+                width: wp("70%"),
+                height: hp("25%"),
+                backgroundColor: "#fff",
+                alignSelf: "center",
+                alignItems: "center",
                 borderRadius: 2,
-              }}>
+              }}
+            >
               <View
                 style={{
                   flex: 3,
-                  justifyContent: 'center',
-                  width: '100%',
-                  paddingLeft: '5%',
-                }}>
+                  justifyContent: "center",
+                  width: "100%",
+                  paddingLeft: "5%",
+                }}
+              >
                 <Text
                   style={{
                     fontSize: 22,
-                    fontWeight: 'bold',
+                    fontWeight: "bold",
                     marginBottom: 20,
-                  }}>
+                  }}
+                >
                   Save Part?
                 </Text>
                 <Text
                   style={{
                     fontSize: 14,
-                    color: 'gray',
-                    fontWeight: 'bold',
-                  }}>
+                    color: "gray",
+                    fontWeight: "bold",
+                  }}
+                >
                   All Part will be installed
                 </Text>
               </View>
               <View
                 style={{
-                  justifyContent: 'flex-end',
-                  alignItems: 'center',
+                  justifyContent: "flex-end",
+                  alignItems: "center",
                   flex: 1,
-                  width: '100%',
-                  flexDirection: 'row',
+                  width: "100%",
+                  flexDirection: "row",
                   paddingRight: 20,
-                }}>
+                }}
+              >
                 <TouchableOpacity
-                  onPress={() => setModalSaveParts(!modalSaveParts)}>
-                  <Text style={{ color: '#299BE8', fontWeight: 'bold' }}>
+                  onPress={() => setModalSaveParts(!modalSaveParts)}
+                >
+                  <Text style={{ color: "#299BE8", fontWeight: "bold" }}>
                     CANCEL
                   </Text>
                 </TouchableOpacity>
@@ -605,8 +643,9 @@ const cardStatus = props => {
                   onPress={() => {
                     setModalSaveParts(!modalSaveParts);
                     _pushPart();
-                  }}>
-                  <Text style={{ color: '#299BE8', fontWeight: 'bold' }}>
+                  }}
+                >
+                  <Text style={{ color: "#299BE8", fontWeight: "bold" }}>
                     SAVE
                   </Text>
                 </TouchableOpacity>
@@ -617,20 +656,22 @@ const cardStatus = props => {
         <Modal animationType="none" transparent={true} visible={upload}>
           <View
             style={{
-              backgroundColor: 'black',
-              justifyContent: 'center',
-              alignItems: 'center',
-              minHeight: '100%',
+              backgroundColor: "black",
+              justifyContent: "center",
+              alignItems: "center",
+              minHeight: "100%",
               opacity: 0.5,
-            }}>
+            }}
+          >
             <ActivityIndicator size="large" color="#37ed26" />
             <Text
               style={{
-                color: 'white',
+                color: "white",
                 marginTop: 10,
-              }}>
-              {' '}
-              Downloading...{' '}
+              }}
+            >
+              {" "}
+              Downloading...{" "}
             </Text>
           </View>
         </Modal>
@@ -642,13 +683,15 @@ const cardStatus = props => {
               key={i}
               style={{
                 ...styles.container,
-                justifyContent: 'center',
-                alignItems: 'flex-start',
-                backgroundColor: 'rgba(84, 174, 188, 0.14)',
-              }}>
+                justifyContent: "center",
+                alignItems: "flex-start",
+                backgroundColor: "rgba(84, 174, 188, 0.14)",
+              }}
+            >
               <View>
                 <Text
-                  style={{ ...textStyles.title, textTransform: 'capitalize' }}>
+                  style={{ ...textStyles.title, textTransform: "capitalize" }}
+                >
                   {el.name}
                 </Text>
               </View>
@@ -663,13 +706,13 @@ const cardStatus = props => {
 const styles = StyleSheet.create({
   container: {
     minHeight: dimHeight * 0.09,
-    width: '95%',
-    flexDirection: 'column',
+    width: "95%",
+    flexDirection: "column",
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 2,
-    justifyContent: 'space-between',
-    shadowColor: '#000',
+    justifyContent: "space-between",
+    shadowColor: "#000",
     shadowOffset: {
       width: 1,
       height: 1,
@@ -678,27 +721,24 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.61,
     shadowRadius: 1,
     elevation: 1,
-    alignSelf: 'center',
+    alignSelf: "center",
     marginBottom: 10,
     padding: 10,
   },
   date: {
-    flexDirection: 'row',
+    flexDirection: "row",
   },
 });
 
 const textStyles = StyleSheet.create({
   title: {
     fontSize: 16,
-    fontWeight: '600',
+    fontWeight: "600",
   },
   subtitle: {
     fontSize: 12,
-    color: 'gray',
+    color: "gray",
   },
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(cardStatus);
+export default connect(mapStateToProps, mapDispatchToProps)(cardStatus);

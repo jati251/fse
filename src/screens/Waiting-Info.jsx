@@ -33,13 +33,13 @@ const WaitingInfo = (props) => {
         <View style={styles.date}>
           <View>
             <View style={{ flexDirection: 'row' }}>
-              <IconOct
+              {/* <IconOct
                 name="primitive-dot"
                 color="green"
                 backgroundColor="transparent"
                 size={22}
                 style={{ marginRight: "5%" }}
-              />
+              /> */}
               <View style={{ alignSelf: 'center' }}>
                 <Text style={textStyles.titleTask}>Start Date</Text>
               </View>
@@ -48,13 +48,13 @@ const WaitingInfo = (props) => {
           </View>
           <View>
             <View style={{ flexDirection: 'row' }}>
-              <IconOct
+              {/* <IconOct
                 name="primitive-dot"
                 color="red"
                 backgroundColor="transparent"
                 size={22}
                 style={{ marginRight: "5%" }}
-              />
+              /> */}
               <View style={{ alignSelf: 'center' }}>
                 <Text style={textStyles.titleTask}>End Date</Text>
               </View>

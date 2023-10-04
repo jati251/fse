@@ -308,12 +308,12 @@ function CardTask(props) {
                   style={{ marginRight: "5%", opacity: 0.7 }}
                 />
               )}
-              <Text style={textStyles.date}>
+              {/* <Text style={textStyles.date}>
                 {moment(new Date(dateFormat(props.task.start_date)))
                   .format("dddd")
                   .substring(0, 3)}
                 , {props.task.start_date}
-              </Text>
+              </Text> */}
             </View>
             <View style={{ flexDirection: "row" }}>
               {props.task.locations.departure_trans == 1 && (
@@ -381,10 +381,10 @@ function CardTask(props) {
               )}
               <Text style={textStyles.date}>
                 {" "}
-                {moment(new Date(dateFormat(props.task.finish_date)))
+                {/* {moment(new Date(dateFormat(props.task.finish_date)))
                   .format("dddd")
                   .substring(0, 3)}
-                , {props.task.finish_date}
+                , {props.task.finish_date} */}
               </Text>
             </View>
           </View>

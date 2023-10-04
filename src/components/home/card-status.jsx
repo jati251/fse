@@ -36,13 +36,13 @@ function CardStatus(props) {
       <View>
         <Text style={textStyles.startfinish}>Start Date</Text>
         <View style={styles.date}>
-          <IconOct
+          {/* <IconOct
             name="primitive-dot"
             color="green"
             backgroundColor="transparent"
             size={20}
             style={{ marginRight: "5%" }}
-          />
+          /> */}
           <Text style={textStyles.date}>
             {props.date ? props.date.start_date : ""}
           </Text>
@@ -51,13 +51,13 @@ function CardStatus(props) {
       <View>
         <Text style={textStyles.startfinish}>Finish Date</Text>
         <View style={styles.date}>
-          <IconOct
+          {/* <IconOct
             name="primitive-dot"
             color="red"
             backgroundColor="transparent"
             size={20}
             style={{ marginRight: "5%" }}
-          />
+          /> */}
           <Text style={textStyles.date}>
             {props.date ? props.date.finish_date : ""}
           </Text>

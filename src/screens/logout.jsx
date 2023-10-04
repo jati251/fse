@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { View, Text, Button } from "react-native";
-import { connect } from "react-redux";
+import { connect, useDispatch } from "react-redux";
 
 import { logout } from "../stores/action";
 import {
@@ -16,10 +16,12 @@ const mapDispatchToProps = {
 };
 
 const logoutScreen = (props) => {
+  const dispatch = useDispatch();
   function toLogout() {
-    props.logout();
+    dispatch(logout());
     props.navigation.navigate("SignIn");
   }
+
   useEffect(() => {
     toLogout();
   }, []);
