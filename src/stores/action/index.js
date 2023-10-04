@@ -80,7 +80,7 @@ export function login(getdata) {
 }
 
 export function getTaskWaiting() {
-  console.log('keepanggil')
+  // console.log('keepanggil')
   return dispatch => {
     dispatch({
       type: 'SET_LOADING',
@@ -96,7 +96,7 @@ export function getTaskWaiting() {
               Authorization: `Bearer ${token}`,
             },
           });
-          console.log('ini data ask waiting', data)
+          // console.log('ini data ask waiting', data)
           dispatch({
             type: 'TASK_WAITING',
             payload: data.data,

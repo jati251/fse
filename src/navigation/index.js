@@ -55,7 +55,7 @@ const HomeScreen = () => {
             <Drawer.Screen name="All Task" component={Home} options={{
 
                 headerStyle: {
-                    backgroundColor: '#2F3E9E',
+                    backgroundColor: '#3A4555',
                 },
                 headerTintColor: '#fff',
                 headerTitleStyle: {
