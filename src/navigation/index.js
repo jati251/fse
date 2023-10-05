@@ -6,8 +6,6 @@ import Home from '../screens/Home';
 import changePass from '../screens/changePass'
 import { logout } from "../stores/action";
 import { useDispatch } from 'react-redux';
-import HomePart from '../screens/Home-Part';
-import HomePPD from '../screens/Home-PPD';
 import LogoutPage from '../screens/logout';
 
 
@@ -72,26 +70,7 @@ const HomeScreen = () => {
                     fontWeight: 'bold',
                 },
             }} />
-            <Drawer.Screen name="Home Part" component={HomePart} options={{
 
-                headerStyle: {
-                    backgroundColor: '#2F3E9E',
-                },
-                headerTintColor: '#fff',
-                headerTitleStyle: {
-                    fontWeight: 'bold',
-                },
-            }} />
-            <Drawer.Screen name="Home PPD" component={HomePPD} options={{
-
-                headerStyle: {
-                    backgroundColor: '#2F3E9E',
-                },
-                headerTintColor: '#fff',
-                headerTitleStyle: {
-                    fontWeight: 'bold',
-                },
-            }} />
             <Drawer.Screen name="Log out" component={LogoutPage} options={{
 
                 headerStyle: {
@@ -105,6 +84,7 @@ const HomeScreen = () => {
         </Drawer.Navigator>
     );
 };
+
 
 export default HomeScreen;
 

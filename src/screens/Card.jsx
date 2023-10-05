@@ -87,9 +87,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 18,
   },
-  headerIcon: {
-    marginRight: 8, // Add margin to separate icon from title
-  },
   headerText: {
     color: "#344054",
     fontSize: 16,

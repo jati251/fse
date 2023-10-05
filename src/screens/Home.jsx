@@ -8,10 +8,10 @@ import {
   Text,
   TouchableOpacity,
 } from "react-native";
-
-import { Ionicons } from "@expo/vector-icons";
-import { connect } from "react-redux";
+// Location
 import GetLocation from "react-native-get-location";
+
+// Action
 import {
   getTaskWaiting,
   setSelectedTask,
@@ -26,15 +26,22 @@ import {
   sendLocation,
   versionCheck,
 } from "../stores/action";
+
+// storage
+import { connect } from "react-redux";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-import Card from "./Card";
+// Component
+import { Ionicons } from "@expo/vector-icons";
+import Card from "./card";
 import CardActive from "../components/home/card-task-active";
 import CardComplete from "../components/home/car-task-close";
 
 const mapStateToProps = (state) => {
   return state;
 };
+
+// dispatch
 
 const mapDispatchToProps = {
   getTaskWaiting,
@@ -53,6 +60,7 @@ const mapDispatchToProps = {
 
 const Home = (props) => {
   const { navigation, isLoading } = props;
+  // local State
   const [active, setActive] = useState(false);
   const [waiting, setWaiting] = useState(true);
   const [pending, setPending] = useState(false);
@@ -60,6 +68,7 @@ const Home = (props) => {
 
   const _changeTab = (param) => {
     if (param == "active") {
+      props.getTaskActive();
       setActive(true);
       setWaiting(false);
       setPending(false);
@@ -83,6 +92,7 @@ const Home = (props) => {
     }
   };
 
+  // useeffect
   useEffect(() => {
     GetLocation.getCurrentPosition({
       enableHighAccuracy: true,
@@ -122,6 +132,7 @@ const Home = (props) => {
         console.log(err);
       });
   }, []);
+
   useEffect(() => {
     if (props.loggedUser) {
       props.getTaskActive(props.loggedUser.id);
@@ -144,6 +155,8 @@ const Home = (props) => {
           </View>
           <Text style={styles.title}>Task Wizard</Text>
         </View>
+
+        {/* Content */}
 
         {/* Bagian Opsi Tab */}
         <ScrollView

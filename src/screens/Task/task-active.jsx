@@ -13,7 +13,7 @@ import { AntDesign, Ionicons } from "@expo/vector-icons";
 import PartWizard from "../components/task-wizard/part-container";
 import CustomerContainer from "../components/task-wizard/customer-container";
 
-const TaskWaiting = () => {
+const TaskActive = () => {
   return (
     <ScrollView>
       <TaskWizardBackground />
@@ -79,4 +79,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default TaskWaiting;
+export default TaskActive;
